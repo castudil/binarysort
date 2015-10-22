@@ -5,11 +5,14 @@
  */
 package binarysort;
 
+import common.AbstractSort;
+import common.Sortable;
+
 /**
  * This class implements a sorting algorithm that assumes that the array contains binary data, i.e., it only contains zeroes and ones.
  * @author castudillo
  */
-public class BinarySort {
+public class BinarySort extends AbstractSort implements Sortable {
 
     /**
      * @param args the command line arguments
@@ -29,6 +32,7 @@ public class BinarySort {
      * The algorithm needs space proportional to the size of the array.
      * @param A the array to be sorted
      */
+    @Override
     public void sort(int A[]){
         //assertions can be disable at compile time
         //see  https://docs.oracle.com/cd/E19683-01/806-7930/6jgp65ikq/index.html
@@ -64,23 +68,4 @@ public class BinarySort {
         return true;
     }
 
-    /**
-     * @param A the array to be tested.
-     * @return true if array is sorted, false otherwise.
-     */
-    
-    public boolean isSorted(int[] A) {
-        if (A.length==0) return false;
-        if (A.length==1) return true;
-        for(int i=0;i<A.length-1;i++)
-            if(A[i]>A[i+1]) //contigous elements must preserve the less-than relationship.
-                return false;
-        if (A[A.length-1]<A[A.length-2]) //check two last elements
-            return false;
-        return true;
-    }
-    
-
-    
-    
 }
